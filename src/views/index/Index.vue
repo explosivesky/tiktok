@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       navBarData: ["同城", "关注", "推荐"],
-      currentIndex: 0,
+      currentIndex: 2,
     }
   },
   components: {
