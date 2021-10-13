@@ -20,13 +20,13 @@ export default {
 
 <style>
 #nav-bar {
+  width: 100vw;
   padding: 10px;
   text-align: center;
   background-color: transparent;
   height: 60px;
   display: flex;
-  justify-content: space-between;
-  color: #ccc;
+  color: rgb(240, 239, 239);
   line-height: 40px;
   position: fixed;
   top: 0;
@@ -34,7 +34,8 @@ export default {
   right: 0;
   z-index: 5;
 }
-.left .right {
+.left,
+.right {
   width: 20%;
   font-size: 20px;
 }

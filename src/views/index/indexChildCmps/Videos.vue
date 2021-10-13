@@ -1,26 +1,21 @@
 <template>
   <!--在视频外面加一个容器-->
   <div id="input_video">
-    <video-player
-      class="video-player vjs-custom-skin"
-      ref="videoPlayer"
-      :playsinline="true"
-      :options="playerOptions"
-    ></video-player>
+    <video-player class="video-player vjs-custom-skin" ref="videoPlayer" :playsinline="true" :options="playerOptions"></video-player>
   </div>
 </template>
 <script>
 export default {
   name: "BusImg",
-  props: ["videoList"],
-  data() {
+  props: ["videoList", "index"],
+  data () {
     return {
       // 视频播放
       playerOptions: {
         // playbackRates : [ 0.5, 1.0, 1.5, 2.0 ], //可选择的播放速度
         autoplay: false, //如果true,浏览器准备好时开始回放。
         muted: false, // 默认情况下将会消除任何音频。
-        loop: false, // 视频一结束就重新开始。
+        loop: true, // 视频一结束就重新开始。
         preload: "auto", // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
         // language: "zh-CN",
         // aspectRatio: "3:4", // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
@@ -32,31 +27,67 @@ export default {
           },
         ],
         // poster: "", //你的封面地址
-        // width: document.documentElement.clientWidth,
         notSupportedMessage: "此视频暂无法播放，请稍后再试", //允许覆盖Video.js无法播放媒体源时显示的默认信息。
         width: document.documentElement.clientWidth,
+        controls: false,
         controlBar: false,
         // controlBar: {
-        //   // timeDivider: true, //当前时间和持续时间的分隔符
-        //   // durationDisplay: true, //显示持续时间
-        //   // remainingTimeDisplay: false, //是否显示剩余时间功能
-        //   // fullscreenToggle: true, //全屏按钮
+        //   timeDivider: true, //当前时间和持续时间的分隔符
+        //   durationDisplay: true, //显示持续时间
+        //   remainingTimeDisplay: false, //是否显示剩余时间功能
+        //   fullscreenToggle: true, //全屏按钮
         // },
       },
+      flag: false,
+      clickFlag: true
     }
   },
+  mounted () {
+    // 第一个视频自动播放
+    // if (this.index == 0) {
+    //   this.playerOptions.autoplay = true;
+    //   this.$store.commit("stateStart", true)
+    // }
+  },
+  methods: {
+    clickPlayerOrPause () {
+      if (this.flag == true) {
+        //动画和视频播放
+        this.$refs.videoPlayer.player.play()
+        this.$store.commit("stateStart", true)
+
+        this.flag = false
+      } else {
+        //动画和视频暂停
+        this.$refs.videoPlayer.player.pause()
+        this.$store.commit("statePause", false)
+        this.flag = true
+      }
+
+    },
+    play () {
+      this.$refs.videoPlayer.player.play()
+      this.$store.commit("stateStart", true)
+
+      this.flag = false;
+    },
+    stop () {
+      this.$refs.videoPlayer.player.pause()
+
+      this.flag = true;
+    }
+  },
+  computed: {},
 }
 </script>
 <style>
 #input_video {
-  /* width: 100%;
-  position: relative; */
+  height: calc(100% - 60px);
+  overflow: hidden;
 }
-#vjs_video_3 {
-  width: 100%;
-  position: relative;
-}
-#vjs_video_3 > .vjs-big-play-button {
+/* #input_video .video-player {
+} */
+#input_video .vjs-custom-skin > .video-js .vjs-big-play-button {
   width: 70px;
   border-radius: 50%;
   position: absolute;

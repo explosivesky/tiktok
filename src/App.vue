@@ -1,18 +1,16 @@
-
 <template>
   <div id="app">
-    <router-view>
-    </router-view>
-
+    <router-view />
   </div>
 </template>
 
 <script>
+import Home from './views/Home'
 export default {
-
+  components: {
+  },
 }
 </script>
-
 
 <style>
 @import "~assets/css/base.css";

@@ -5,14 +5,20 @@
     <div class="music">
       <span class="music-icon iconfont icon-yinfu"></span>
       <div class="music-name">
-        <span data-attr="explosive的音乐">explosive的音乐</span>
+        <span data-attr="explosive的音乐" class="music-name-span" :style="{ 'animation-play-state': player }">explosive的音乐</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import { animationMixin } from "utils/mixin"
+export default {
+  mixins: [animationMixin],
+  data () {
+    return {}
+  },
+}
 </script>
 
 <style scoped>
@@ -35,15 +41,6 @@ export default {}
 }
 .music-icon {
   margin-right: 3px;
-  animation: rotate 5s linear infinite;
-}
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
 }
 .music-name span::after {
   content: attr(data-attr);
@@ -54,7 +51,7 @@ export default {}
   white-space: nowrap;
   overflow: hidden;
 }
-.music-name span {
+.music-name-span {
   display: inline-block;
   animation: scroll 5s linear infinite;
 }
