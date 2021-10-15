@@ -11,22 +11,12 @@
       </p>
       <div class="inp-pwd">
         <div class="sign-box">
-          <input
-            class="sign-ipt"
-            type="password"
-            @input.stop.prevent="changeTel"
-            v-model="pwd"
-            placeholder="  请输入验证码"
-          />
+          <input class="sign-ipt" type="password" @input.stop.prevent="changeTel" v-model="pwd" placeholder="  请输入验证码" />
           <span class="count-down" v-show="isShow">{{ countDown }}</span>
         </div>
       </div>
       <div class="sign-btn">
-        <button
-          @click.stop.prevent="login"
-          :class="{ isActive: btnColor }"
-          :disabled="btnColor"
-        >
+        <button @click.stop.prevent="login" :class="{ isActive: btnColor }" :disabled="btnColor">
           <div class="load" v-if="!btnColor"></div>
           登录
         </button>
@@ -37,7 +27,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       telEare: "",
       pwd: "",
@@ -47,7 +37,7 @@ export default {
     }
   },
 
-  mounted() {
+  mounted () {
     if (!this.falg) {
       let timer = setInterval(() => {
         this.countDown--
@@ -60,15 +50,15 @@ export default {
     }
   },
   methods: {
-    back() {
-      this.$router.replace("/sign")
+    back () {
+      this.$router.push("/sign")
     },
-    login() {
+    login () {
       if (this.pwd.length == 6) {
-        this.$router.replace("/index")
+        this.$router.push("/index")
       }
     },
-    changeTel(e) {
+    changeTel (e) {
       this.pwd = e.target.value
       let phoneRagular = /^\d{6}$/
       if (phoneRagular.test(this.pwd)) {
@@ -79,7 +69,7 @@ export default {
     },
   },
   computed: {
-    isShow() {
+    isShow () {
       if (this.countDown == 0) {
         // this.btnColor = false
         // this.disabled = false

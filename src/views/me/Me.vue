@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="top-mask" v-show="isShow"></div>
-    <scroll class="scroll" @scroll="scrollFn">
+    <scroll class="scroll" @scroll="scrollFn" :scrollY='true'>
       <div class="user-wrap">
         <div class="padding">
           <div class="user-top">
@@ -56,7 +56,7 @@
 <script>
 import { mockData } from "../../netWork/mockData"
 
-import Scroll from "../../components/common/scroll/Scroll"
+import Scroll from "components/common/scroll/Scroll"
 export default {
   data () {
     return {
@@ -89,14 +89,14 @@ export default {
       }
     },
     deitView () {
-      this.$router.replace('/edit')
-    }
+      this.$router.push('/edit')
+    },
+
   },
   created () {
     mockData().then((req) => {
       this.data = req.data
     })
-
   },
   mounted () {
 

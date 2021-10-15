@@ -1,7 +1,7 @@
 <template>
   <div id="comment">
     <cmt-title :index="index" />
-    <scroll class="scroll">
+    <scroll class="scroll" :scrollY="true">
       <cmt-users></cmt-users>
       <cmt-users></cmt-users>
       <cmt-users></cmt-users>

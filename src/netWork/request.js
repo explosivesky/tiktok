@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-export function request(baseUrl, config) {
+export function request(baseURL, config) {
  return new Promise((resolve, reject) => {
   let instance = axios.create({
-   baseURL: baseUrl,
+   baseURL,
    timeout: 5000,
    headers: {
     'Content-Type': 'Access-Control-Allow-Origin'

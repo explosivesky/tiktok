@@ -7,7 +7,7 @@
         <video-info />
         <transition name="up">
           <div v-if="isShow">
-            <comment class="comment" />
+            <comment />
           </div>
         </transition>
       </swiper-slide>
@@ -139,7 +139,7 @@ export default {
   background-color: black;
   height: calc(100vh - 120px);
   position: relative;
-  top: 0;
+  top: -60px;
   left: 0;
   z-index: 1;
 }

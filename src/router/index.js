@@ -61,6 +61,10 @@ const routes = [{
   path: '/edit',
   component: () => import('../views/me/Edit.vue')
  },
+ {
+  path: '/publish',
+  component: () => import('../views/publish/Publish.vue'),
+ },
 
 ]
 

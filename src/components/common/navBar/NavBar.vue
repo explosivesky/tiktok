@@ -28,7 +28,7 @@ export default {
   display: flex;
   color: rgb(240, 239, 239);
   line-height: 40px;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;

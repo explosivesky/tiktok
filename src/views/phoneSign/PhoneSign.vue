@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     back () {
-      this.$router.replace("/sign")
+      this.$router.push("/sign")
     },
     changeTel (e) {
       let phoneRagular = /^1[345789]{1}\d{9}$/
@@ -90,7 +90,7 @@ export default {
           })
         } else {
           //如果是点击事件那么 跳转到 /me
-          this.$router.replace("/me")
+          this.$router.push("/me")
           //修改tabbar 参数
           this.$store.commit('login', this.login)
         }

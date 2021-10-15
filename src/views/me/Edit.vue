@@ -106,7 +106,7 @@ export default {
   },
   methods: {
     back () {
-      this.$router.replace('/me')
+      this.$router.push('/me')
     }
   }
 }
@@ -119,6 +119,7 @@ export default {
   font-size: 18px;
   box-sizing: border-box;
   padding: 15px;
+  overflow: hidden;
 }
 .left-box {
   position: relative;

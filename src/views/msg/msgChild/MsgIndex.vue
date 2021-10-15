@@ -123,6 +123,7 @@
 </template>
 
 <script>
+import Scroll from 'components/common/scroll/Scroll'
 export default {
   data () {
     return {
@@ -134,30 +135,45 @@ export default {
         backgroundColor: 'yellow'
       }
     }
+  },
+  components: {
+    Scroll
+  },
+  mounted () {
+    console.log(this.$refs.wraper);
+
   }
 }
 </script>
 
 <style scoped>
+#msg-index {
+  width: 100vw;
+}
 ::-webkit-scrollbar {
   display: none;
 }
 .scroll {
   position: relative;
-  top: 60px;
+  top: 0;
   left: 0;
   overflow: hidden;
-  height: calc(100% - 120px);
+  width: 200px;
+  white-space: nowrap;
 }
 .padding {
   padding: 0 5px;
 }
-
+.wraper {
+  display: inline-block;
+  width: 2000px;
+}
 .friend-list {
-  margin-top: 25px;
+  margin-top: 15px;
   display: flex;
   justify-content: left;
   overflow-x: auto;
+  white-space: nowrap;
 }
 .friend-item {
   color: #8f909d;

@@ -68,7 +68,7 @@ export default {
       this.$store.commit("noShow", false)
     },
     login () {
-      this.$router.replace("/verification")
+      this.$router.push("/verification")
     },
     //根据 手机好验证 修改 按钮样式
     changeTel (e) {
@@ -84,7 +84,7 @@ export default {
     },
     //返回首页
     backHome () {
-      this.$router.replace('/index')
+      this.$router.push('/index')
     }
   },
 }
@@ -203,7 +203,7 @@ button {
 }
 .up-enter, .up-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 1;
-  transform: translateY(100%);
+  transform: translateY(200%);
 }
 .isActive {
   background-color: #d8d8db;

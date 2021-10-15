@@ -27,6 +27,18 @@ export default {
       type: Boolean,
       default: true,
     },
+    scrollY: {
+      type: Boolean,
+      default: false
+    },
+    scrollX: {
+      type: Boolean,
+      default: false
+    },
+    verticalOrHorizontal: {
+      type: String,
+      default: ''
+    }
   },
   data () {
     return {
@@ -41,6 +53,10 @@ export default {
       click: true,
       probeType: this.probeType,
       pullUpLoad: this.pullUpLoad,
+      scrollY: this.scrollY,
+      scrollX: this.scrollX,
+      eventPassthrough: 'horizontal',
+      freeScroll: true
     })
     //将此事件发送出去
     this.scroll.on("scroll", (position) => {

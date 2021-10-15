@@ -7,7 +7,7 @@
       <router-link to="/follow" tag="span" :class="homeIndex === 1 ? 'isActive' : ''">朋友</router-link>
     </div>
     <div class="item">
-      <router-link to="/home" tag="span"><img class="dy-btn" src="../../../assets/img/TabBar/add.jpg" alt="" /></router-link>
+      <router-link to="/publish" tag="span"><img class="dy-btn" src="../../../assets/img/TabBar/add.jpg" alt="" /></router-link>
     </div>
     <div class="item" @click="handle(2)">
       <router-link to="/msg" tag="span" :class="homeIndex === 2 ? 'isActive' : ''">消息</router-link>
@@ -34,7 +34,7 @@ export default {
       this.homeIndex = index
 
       if (this.isLogin && index == 3) {
-        this.$router.replace("/me")
+        this.$router.push("/me")
       }
     },
   },
